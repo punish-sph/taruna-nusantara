@@ -1,10 +1,12 @@
 import { useForm } from "@inertiajs/react";
-import LoginLayout from "../../components/templates/LoginLayout/LoginLayout";
+import RegisterLayout from "../../components/templates/RegisterLayout/RegisterLayout";
 
-export default function LoginPage() {
+export default function RegisterPage() {
     const { data, setData, post, processing, errors } = useForm({
+        name: "",
         email: "",
         password: "",
+        password_confirmation: "",
     });
 
     const handleChange = (e) => {
@@ -15,12 +17,12 @@ export default function LoginPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Submit: ", data);
-        post("login");
+        post("register");
     };
 
     return (
         <div className="min-w-full min-h-screen flex justify-center items-center bg-gray-50">
-            <LoginLayout
+            <RegisterLayout
                 formData={data}
                 onChange={handleChange}
                 onSubmit={handleSubmit}
