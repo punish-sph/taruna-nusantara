@@ -1,5 +1,5 @@
 import { usePage } from "@inertiajs/react";
-import StudentLayout from "../../components/templates/StudentLayout/StudentLayout";
+import StudentLayout from "../../Components/templates/StudentLayout";
 
 export default function StudentDashboard() {
     const { auth } = usePage().props;

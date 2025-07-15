@@ -1,4 +1,4 @@
-import RegisterForm from "../../organisms/RegisterForm/RegisterForm";
+import RegisterForm from "../../Components/organisms/RegisterForm";
 
 export default function RegisterLayout({
     formData,

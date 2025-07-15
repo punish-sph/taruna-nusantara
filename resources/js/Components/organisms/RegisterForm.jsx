@@ -1,5 +1,5 @@
-import Button from "../../atoms/Button/Button";
-import InputField from "../../molecules/InputField/InputField";
+import Button from "../../Components/atoms/Button";
+import InputField from "../../Components/molecules/InputField";
 
 export default function RegisterForm({
     formData,

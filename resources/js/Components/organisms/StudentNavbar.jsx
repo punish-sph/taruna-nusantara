@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Button from "../../atoms/Button/Button";
-import NavLinkItem from "../../molecules/NavLinkItem/NavLinkItem";
-import IconToggle from "../../atoms/IconToggle/IconToggle";
+import Button from "../../Components/atoms/Button";
+import NavLinkItem from "../../Components/molecules/NavLinkItem";
+import IconToggle from "../../Components/atoms/IconToggle";
 import { router } from "@inertiajs/react";
 
 export default function StudentNavbar() {

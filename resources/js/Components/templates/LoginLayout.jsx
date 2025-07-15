@@ -1,4 +1,4 @@
-import LoginForm from "../../organisms/LoginForm/LoginForm";
+import LoginForm from "../../Components/organisms/LoginForm";
 
 export default function LoginLayout({
     formData,

@@ -1,5 +1,5 @@
 import { useForm } from "@inertiajs/react";
-import RegisterLayout from "../../components/templates/RegisterLayout/RegisterLayout";
+import RegisterLayout from "../../Components/templates/RegisterLayout";
 
 export default function RegisterPage() {
     const { data, setData, post, processing, errors } = useForm({

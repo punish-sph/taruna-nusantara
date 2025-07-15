@@ -1,5 +1,5 @@
-import Input from "../../atoms/Input/Input";
-import Label from "../../atoms/Label/Label";
+import Input from "../../Components/atoms/Input";
+import Label from "../../Components/atoms/Label";
 
 export default function InputField({
     label,
