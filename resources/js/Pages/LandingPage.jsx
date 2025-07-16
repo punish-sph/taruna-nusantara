@@ -1,5 +1,4 @@
 import LandingLayouts from "@/Components/templates/LandingLayout";
-import StatsSection from "../Components/organisms/Landing/StatsSection";
 import SchoolProfileSection from "../Components/organisms/Landing/SchoolProfile";
 import NewsSection from "../Components/organisms/Landing/NewsSection";
 import AchievementsSection from "../Components/organisms/Landing/AchievementsSection";
@@ -12,16 +11,8 @@ export default function LandingPage() {
             <HeroSection/>
 
             <div className="px-4 md:px-8 space-y-16 md:space-y-24 pb-16">
-                {/* Stats Section */}
-                <StatsSection/>
-
-                {/* School Profile Section */}
                 <SchoolProfileSection/>
-
-                {/* News Section */}
                 <NewsSection/>
-
-                {/* Achievements Section */}
                 <AchievementsSection/>
             </div>
         </div>

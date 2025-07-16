@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { CalendarDaysIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
-import Button from "@/Components/Button";
+import Button from "@/Components/atoms/Button";
 
 const NewsSection = () => {
     const newsData = [

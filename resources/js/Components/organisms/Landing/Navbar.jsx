@@ -8,7 +8,9 @@ import {
     AcademicCapIcon,
 } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence } from "framer-motion";
-import NavLinkItem from "../../molecules/NavLinkItem";
+import NavLinkItem from "@/Components/molecules/NavLinkItem";
+import Title from "@/Components/atoms/Title"
+
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -56,23 +58,23 @@ export default function Navbar() {
             }`}
         >
             <motion.div
-                className="h-1 bg-gradient-to-r from-green-600 to-emerald-700"
+                className="h-1 bg-gradient-to-r from-sky-600 to-sky-700"
                 initial={{ width: 0 }}
                 animate={{ width: `${scrollProgress}%` }}
                 transition={{ duration: 0.2 }}
             />
             <div className="w-full flex items-center justify-between px-6 py-4">
-                <motion.h1
-                    className="text-xl font-semibold tracking-wide text-green-700 flex items-center gap-2"
+                <motion.div
+                    className=" font-semibold tracking-wide flex items-center gap-2"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-600 to-emerald-700 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sky-600 to-sky-700 flex items-center justify-center">
                         <AcademicCapIcon className="w-4 h-4 text-white" />
                     </div>
-                    <span>Taruna Nusantara</span>
-                </motion.h1>
+                    <Title size="lg" className="text-gray-800" text="Taruna Nusantara"/>
+                </motion.div>
 
                 {/* Desktop nav */}
                 <nav className="hidden md:flex space-x-1">
@@ -82,7 +84,7 @@ export default function Navbar() {
                                 name={link.name}
                                 url={link.href}
                                 icon={link.icon}
-                                activeClass="bg-gradient-to-r from-green-600 to-emerald-700 text-white shadow-lg"
+                                activeClass="bg-gradient-to-r from-sky-600 to-sky-700 text-white shadow-lg"
                                 inactiveClass="text-zinc-700 hover:bg-zinc-100"
                             />
                         </div>
@@ -121,7 +123,7 @@ export default function Navbar() {
                                         icon={link.icon}
                                         onClick={() => setMenuOpen(false)}
                                         className="w-full"
-                                        activeClass="bg-green-100 text-green-700 font-semibold"
+                                        activeClass="bg-sky-100 text-sky-700 font-semibold"
                                         inactiveClass="text-zinc-700 hover:bg-zinc-50"
                                     />
                                 </div>

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { PlayIcon } from "@heroicons/react/24/outline";
-import Button from "@/Components/Button";
+import Button from "@/Components/atoms/Button";
+import Badge from "@/Components/atoms/Badge";
+import Title from "@/Components/atoms/Title";
+import Description from "@/Components/atoms/Description";
 
 const HeroSection = () => {
     const [imageLoaded, setImageLoaded] = useState(false);
@@ -22,19 +25,21 @@ const HeroSection = () => {
     };
 
     return (
-        <section className="relative h-screen max-h-[500px] min-h-[400px] overflow-hidden">
+        <section className="relative h-screen max-h-[600px] min-h-[500px] overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0">
                 <img
-                    src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1986&q=80"
+                    src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1986&q=80"
                     alt="SMA Taruna Nusantara"
                     className={`w-full h-full object-cover transition-all duration-1000 ${
-                        imageLoaded ? "opacity-100 scale-100" : "opacity-0 scale-110"
+                        imageLoaded
+                            ? "opacity-100 scale-100"
+                            : "opacity-0 scale-110"
                     }`}
                     onLoad={() => setImageLoaded(true)}
                 />
                 <div
-                    className={`absolute inset-0 bg-gradient-to-br from-green-800 via-green-900 to-emerald-900 transition-opacity duration-700 ${
+                    className={`absolute inset-0 bg-gradient-to-br from-blue-800 via-blue-900 to-sky-900 transition-opacity duration-700 ${
                         imageLoaded ? "opacity-0" : "opacity-100"
                     }`}
                 ></div>
@@ -50,33 +55,33 @@ const HeroSection = () => {
                         initial="initial"
                         animate="animate"
                         variants={staggerContainer}
-                        className="space-y-6"
                     >
-                        <motion.div variants={fadeInUp}>
-                            <div className="inline-block bg-emerald-500/20 backdrop-blur px-4 py-1.5 rounded-full mb-4">
-                                <span className="text-sm font-medium tracking-wide">
-                                    Sekolah Unggulan Nasional
-                                </span>
-                            </div>
-                            <motion.h1
-                                className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight md:leading-[1.2]"
-                                variants={fadeInUp}
-                            >
-                                SMA <span className="text-emerald-400">Taruna</span> Nusantara
-                            </motion.h1>
+                        <motion.div variants={fadeInUp} className="lg:space-y-6 space-y-1">
+                            <Badge
+                                text="Sekolah Unggulan Nasional"
+                                variant="sky"
+                            />
+                            <Title
+                                text="SMA Taruna Nusantara"
+                                highlight="Taruna"
+                                className="text-white"
+                                size="5xl"
+                                mdSize="6xl"
+                            />
+                            <Description color="gray-100" size="lg" mdSize="xl">
+                                Membentuk Generasi Pemimpin Berintegritas dan
+                                Berkarakter untuk Masa Depan Indonesia.
+                            </Description>
                         </motion.div>
-                        <motion.p
-                            className="text-lg md:text-xl opacity-90 leading-relaxed text-zinc-100 max-w-2xl"
-                            variants={fadeInUp}
-                        >
-                            Membentuk Generasi Pemimpin Berintegritas dan Berkarakter untuk Masa Depan Indonesia.
-                        </motion.p>
+
+                        <motion.div variants={fadeInUp}></motion.div>
+
                         <motion.div
                             className="flex flex-col sm:flex-row gap-4 pt-6"
                             variants={fadeInUp}
                         >
                             <Button
-                                variant="success"
+                                variant="primary"
                                 size="md"
                                 rounded="full"
                                 shadow="lg"
