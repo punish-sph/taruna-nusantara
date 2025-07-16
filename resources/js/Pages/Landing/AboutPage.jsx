@@ -1,5 +1,5 @@
 import React from "react";
-import LandingLayouts from "@/Layouts/LandingLayouts";
+import LandingLayouts from "@/Components/templates/LandingLayout";
 
 export default function AboutPage() {
     return (
