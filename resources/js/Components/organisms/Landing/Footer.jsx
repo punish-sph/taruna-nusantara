@@ -34,14 +34,9 @@ export default function Footer() {
   return (
     <footer>
       <div className="w-full bg-white shadow-md p-8 md:p-12 space-y-8">
-        {/* Top */}
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-10">
-          {/* Logo + Desc */}
           <div className="flex-1 max-w-md">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-bold text-sm">
-                Z
-              </div>
               <span className="text-lg font-semibold">Taruna Nusantara</span>
             </div>
             <p className="text-sm text-gray-600 leading-relaxed">

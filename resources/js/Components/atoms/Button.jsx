@@ -113,6 +113,7 @@ export default function Button({
       warning: "bg-yellow-600 hover:bg-yellow-700 text-white",
       success: "bg-green-600 hover:bg-green-700 text-white",
       outline: "border-2 border-black text-black bg-transparent hover:bg-black hover:text-white",
+      ghost: "border-2 border-sky-600 text-sky-600 bg-transparent hover:bg-sky-600 hover:text-white",
     },
   };
 

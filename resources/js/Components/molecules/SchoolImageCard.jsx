@@ -3,7 +3,7 @@ import React from "react";
 export default function SchoolImageCard({ imageUrl, desc, title }) {
   return (
     <div className="relative rounded-2xl overflow-hidden shadow-xl">
-      <div className="aspect-video bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl overflow-hidden">
+      <div className="aspect-video rounded-2xl overflow-hidden">
         <img
           src={imageUrl}
           alt="SMA Taruna Nusantara"

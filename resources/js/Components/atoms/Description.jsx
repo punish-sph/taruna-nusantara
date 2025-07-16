@@ -1,11 +1,11 @@
 import React from "react";
 import clsx from "clsx";
 
-export default function DescriptionSection({
+export default function Description({
   children,
-  size = "md",
+  size = "",
   mdSize = "",
-  align = "left",
+  align = "",
   color = "zinc-600",
   className = "",
 }) {

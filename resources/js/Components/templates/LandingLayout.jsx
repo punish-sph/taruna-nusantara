@@ -1,7 +1,7 @@
 import React from "react";
 import { Head } from "@inertiajs/react";
 import Navbar from "@/Components/organisms/Landing/Navbar";
-import Footer from "@/Components/Footer";
+import Footer from "@/Components/organisms/Landing/Footer";
 import { motion } from "framer-motion";
 
 export default function LandingLayouts({ children }) {

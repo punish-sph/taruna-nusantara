@@ -58,7 +58,7 @@ export default function Navbar() {
             }`}
         >
             <motion.div
-                className="h-1 bg-gradient-to-r from-sky-600 to-sky-700"
+                className="h-1"
                 initial={{ width: 0 }}
                 animate={{ width: `${scrollProgress}%` }}
                 transition={{ duration: 0.2 }}
@@ -70,7 +70,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sky-600 to-sky-700 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-bl from-sky-600 to-sky-700 flex items-center justify-center">
                         <AcademicCapIcon className="w-4 h-4 text-white" />
                     </div>
                     <Title size="lg" className="text-gray-800" text="Taruna Nusantara"/>
@@ -84,7 +84,7 @@ export default function Navbar() {
                                 name={link.name}
                                 url={link.href}
                                 icon={link.icon}
-                                activeClass="bg-gradient-to-r from-sky-600 to-sky-700 text-white shadow-lg"
+                                activeClass="bg-gradient-to-l from-sky-500 to-sky-700 text-white shadow-lg"
                                 inactiveClass="text-zinc-700 hover:bg-zinc-100"
                             />
                         </div>
