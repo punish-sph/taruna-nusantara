@@ -1,4 +1,9 @@
+import { useState } from "react";
 import LoginForm from "../../Components/organisms/LoginForm";
+import { Head } from "@inertiajs/react";
+import Card from "@/Components/atoms/Card";
+import Title from "@/Components/atoms/Title";
+import Description from "@/Components/atoms/Description";
 
 export default function LoginLayout({
     formData,
@@ -7,28 +12,67 @@ export default function LoginLayout({
     errors,
     processing,
 }) {
+    const [imageLoaded, setImageLoaded] = useState(false);
     return (
-        <div className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-1/2 bg-white border grid grid-cols-1 lg:grid-cols-2 items-center border-gray-300 shadow-lg p-4 sm:p-6 rounded-lg">
-            <div className="w-full p-2 sm:p-4 hidden lg:flex flex-col justify-center items-center ">
-                <h1 className="text-2xl lg:text-3xl font-bold text-center text-gray-800 mb-2">
-                    Selamat Datang
-                </h1>
-                <p className="font-medium text-gray-600 text-center mb-4">
-                    Silahkan login untuk melanjutkan
-                </p>
-                <img
-                    src="/images/schoolLogo.jpg"
-                    alt="School Logo"
-                    className="w-40 sm:w-48 md:w-56 lg:w-64 object-contain"
-                />
+        <>
+            <Head title="Login" />
+            <div className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-4/5 xl:w-3/4">
+                <Card
+                    padding="p-0"
+                    className="grid grid-cols-1 md:grid-cols-2 overflow-hidden min-h-[400px] md:min-h-[500px]"
+                >
+                    <div className="relative w-full overflow-hidden hidden md:block">
+                        <img
+                            src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1986&q=80"
+                            alt="SMA Taruna Nusantara"
+                            className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${
+                                imageLoaded
+                                    ? "opacity-100 scale-100"
+                                    : "opacity-0 scale-110"
+                            }`}
+                            onLoad={() => setImageLoaded(true)}
+                        />
+
+                        <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-sky-400/40"></div>
+                        <div
+                            className={`absolute inset-0 bg-gradient-to-br from-sky-500 to-sky-900 transition-opacity duration-700 ${
+                                imageLoaded ? "opacity-0" : "opacity-100"
+                            }`}
+                        ></div>
+
+                        <div className="relative z-10 h-full flex flex-col justify-end items-start p-6 sm:p-8 text-white">
+                            <div className="text-center">
+                                <Title
+                                    text="Selamat Datang Kembali"
+                                    size="xl"
+                                    align="left"
+                                    className=" text-white drop-shadow-lg lg:text-4xl"
+                                />
+                                <Description
+                                    size="lg"
+                                    color="white"
+                                    align="left"
+                                    className=" text-white/95 drop-shadow-md"
+                                >
+                                    Portal Akademik SMA Taruna Nusantara
+                                </Description>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="w-full bg-white flex items-center justify-center p-6 sm:p-8 md:col-span-1 col-span-1">
+                        <div className="w-full max-w-sm">
+                            <LoginForm
+                                formData={formData}
+                                onChange={onChange}
+                                onSubmit={onSubmit}
+                                errors={errors}
+                                processing={processing}
+                            />
+                        </div>
+                    </div>
+                </Card>
             </div>
-            <LoginForm
-                formData={formData}
-                onChange={onChange}
-                onSubmit={onSubmit}
-                errors={errors}
-                processing={processing}
-            />
-        </div>
+        </>
     );
 }

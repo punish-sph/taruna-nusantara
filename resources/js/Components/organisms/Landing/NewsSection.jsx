@@ -84,7 +84,7 @@ const NewsSection = () => {
           variant="primary"
           icon={ArrowRightIcon}
           iconPosition="right"
-          animation="slide"
+          animation="pulse"
           className="mb-2"
         >
           Lihat Semua

@@ -35,7 +35,7 @@ export default function NewsCard({ title, date, excerpt, category, image }) {
           {excerpt}
         </DescriptionSection>
 
-        <Button variant="ghost" theme="dark" animation="slide">
+        <Button variant="ghost" theme="dark" animation="pulse">
           Baca Selengkapnya
         </Button>
       </div>

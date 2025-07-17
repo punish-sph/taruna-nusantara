@@ -76,7 +76,6 @@ export default function Navbar() {
                     <Title size="lg" className="text-gray-800" text="Taruna Nusantara"/>
                 </motion.div>
 
-                {/* Desktop nav */}
                 <nav className="hidden md:flex space-x-1">
                     {navLinks.map((link, index) => (
                         <div key={link.href}>
@@ -91,7 +90,6 @@ export default function Navbar() {
                     ))}
                 </nav>
 
-                {/* Mobile menu button */}
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
                     className="md:hidden w-8 h-8 flex items-center justify-center focus:outline-none"
@@ -104,7 +102,6 @@ export default function Navbar() {
                 </button>
             </div>
 
-            {/* Mobile nav */}
             <AnimatePresence>
                 {menuOpen && (
                     <motion.div

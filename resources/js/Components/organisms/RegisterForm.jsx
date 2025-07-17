@@ -1,5 +1,7 @@
+
 import Button from "../../Components/atoms/Button";
 import InputField from "../../Components/molecules/InputField";
+import Description from "../../Components/atoms/Description";
 
 export default function RegisterForm({
     formData,
@@ -9,13 +11,10 @@ export default function RegisterForm({
     processing,
 }) {
     return (
-        <form onSubmit={onSubmit} method="post" className="w-full p-2 sm:p-4">
-            <h1 className="text-xl md:text-2xl font-semibold text-center text-gray-800 mb-4">
-                Register
-            </h1>
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
+        <form onSubmit={onSubmit} method="post" className="w-full">
+            <div className="w-full grid grid-cols-1">
                 <InputField
-                    label={"Nama Lengkap"}
+                    label="Nama Lengkap"
                     inputType="text"
                     name="name"
                     id="name"
@@ -25,7 +24,7 @@ export default function RegisterForm({
                     error={errors.name}
                 />
                 <InputField
-                    label={"Email"}
+                    label="Email"
                     inputType="email"
                     name="email"
                     id="email"
@@ -35,7 +34,7 @@ export default function RegisterForm({
                     error={errors.email}
                 />
                 <InputField
-                    label={"Password"}
+                    label="Password"
                     inputType="password"
                     name="password"
                     id="password"
@@ -45,11 +44,11 @@ export default function RegisterForm({
                     error={errors.password}
                 />
                 <InputField
-                    label={"Konfirmasi Password"}
+                    label="Konfirmasi Password"
                     inputType="password"
                     name="password_confirmation"
                     id="password_confirmation"
-                    placeholder="Masukkan konfirmasi password"
+                    placeholder="Konfirmasi password"
                     value={formData.password_confirmation}
                     onChange={onChange}
                     error={errors.password_confirmation}
@@ -60,19 +59,26 @@ export default function RegisterForm({
                 variant="primary"
                 type="submit"
                 disabled={processing}
-                className={"w-full"}
+                className="w-full mb-4 py-3"
             >
-                {processing ? "Mendaftar..." : "Daftar"}
+                {processing ? "Mendaftar..." : "Daftar Sekarang"}
             </Button>
-            <p className="text-gray-600 text-center mt-4">
-                Sudah punya akun?{" "}
-                <a
-                    href="/login"
-                    className="text-indigo-600 hover:text-indigo-800 hover:underline transition duration-300 font-semibold ease-in-out" // Warna dan style link ditingkatkan
+
+            <div className="text-center pt-4 border-t border-gray-100">
+                <Description
+                    size="sm"
+                    color="gray-600"
+                    align="center"
                 >
-                    Login Sekarang
-                </a>
-            </p>
+                    Sudah punya akun?{" "}
+                    <a
+                        href="/login"
+                        className="text-sky-600 hover:text-sky-800 hover:underline transition-all duration-300 font-semibold"
+                    >
+                        Login di sini
+                    </a>
+                </Description>
+            </div>
         </form>
     );
 }

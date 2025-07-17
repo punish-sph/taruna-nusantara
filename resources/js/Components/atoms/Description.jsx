@@ -10,6 +10,7 @@ export default function Description({
   className = "",
 }) {
   const sizeStyles = {
+    xs: "text-xs",
     sm: "text-sm",
     md: "text-base",
     lg: "text-lg",

@@ -1,4 +1,6 @@
 import React from "react";
+import Title from "@/Components/atoms/Title";
+import Description from "@/Components/atoms/Description";
 
 export default function FeatureItem({ icon: Icon, title, description }) {
   return (
@@ -7,8 +9,10 @@ export default function FeatureItem({ icon: Icon, title, description }) {
         <Icon className="w-5 h-5 text-sky-600" />
       </div>
       <div>
-        <h4 className="font-semibold text-gray-800">{title}</h4>
-        <p className="text-sm text-gray-600 mt-1">{description}</p>
+        <Title text={title} size="sm" className="lg:text-lg"/>
+        <Description size="xs" className="lg:text-sm" color="gray-600">
+          {description}
+        </Description>
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ import Card from "@/Components/atoms/Card";
 
 import InfoItem from "@/Components/atoms/InfoItem";
 import FeatureList from "@/Components/molecules/FeatureList";
-import SchoolImageCard from "@/Components/molecules/SchoolImageCard";
+import ImageCard from "@/Components/molecules/ImageCard";
 
 const SchoolProfileSection = () => {
     const features = [
@@ -89,13 +89,13 @@ const SchoolProfileSection = () => {
                         </div>
 
                         <div className="space-y-4 text-gray-600">
-                            <DescriptionSection>
+                            <DescriptionSection size="sm" className="lg:text-base">
                                 SMA Taruna Nusantara adalah sekolah menengah
                                 atas yang berkomitmen untuk membentuk generasi
                                 muda yang berintegritas, berkarakter, dan siap
                                 menghadapi tantangan masa depan.
                             </DescriptionSection>
-                            <DescriptionSection>
+                            <DescriptionSection size="sm" className="lg:text-base">
                                 Dengan kurikulum komprehensif dan fasilitas
                                 modern, kami memberikan pendidikan terbaik yang
                                 menggabungkan akademik dan pengembangan
@@ -107,7 +107,7 @@ const SchoolProfileSection = () => {
                     </motion.div>
 
                     <motion.div variants={fadeInRight} className="relative">
-                        <SchoolImageCard
+                        <ImageCard
                             imageUrl="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
                             title="Visi Sekolah"
                             desc="Menjadi sekolah unggulan yang menghasilkan lulusan berintegritas tinggi dan berdaya saing global"

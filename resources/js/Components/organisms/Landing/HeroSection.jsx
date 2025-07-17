@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { PlayIcon } from "@heroicons/react/24/outline";
+import { UsersIcon } from "@heroicons/react/24/outline";
 import Button from "@/Components/atoms/Button";
 import Badge from "@/Components/atoms/Badge";
 import Title from "@/Components/atoms/Title";
 import Description from "@/Components/atoms/Description";
+import { Link } from "@inertiajs/react";
 
 const HeroSection = () => {
     const [imageLoaded, setImageLoaded] = useState(false);
@@ -25,8 +26,7 @@ const HeroSection = () => {
     };
 
     return (
-        <section className="relative h-screen max-h-[600px] min-h-[500px] overflow-hidden">
-            {/* Background Image */}
+        <section className="relative h-screen max-h-[580px] min-h-[450px] overflow-hidden">
             <div className="absolute inset-0">
                 <img
                     src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1986&q=80"
@@ -45,10 +45,7 @@ const HeroSection = () => {
                 ></div>
             </div>
 
-            {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-
-            {/* Content */}
             <div className="relative z-10 flex items-center justify-start h-full text-white px-6 md:px-16">
                 <div className="max-w-3xl space-y-8">
                     <motion.div
@@ -56,7 +53,10 @@ const HeroSection = () => {
                         animate="animate"
                         variants={staggerContainer}
                     >
-                        <motion.div variants={fadeInUp} className="lg:space-y-6 space-y-1">
+                        <motion.div
+                            variants={fadeInUp}
+                            className="lg:space-y-6 space-y-1"
+                        >
                             <Badge
                                 text="Sekolah Unggulan Nasional"
                                 variant="sky"
@@ -80,28 +80,33 @@ const HeroSection = () => {
                             className="flex flex-col sm:flex-row gap-4 pt-6"
                             variants={fadeInUp}
                         >
-                            <Button
-                                variant="primary"
-                                size="md"
-                                rounded="full"
-                                shadow="lg"
-                                animation="pulse"
-                                className="text-lg hover:scale-[1.03] transition-transform"
-                            >
-                                Daftar Sekarang
-                            </Button>
-                            <Button
-                                variant="outline"
-                                theme="light"
-                                size="md"
-                                icon={PlayIcon}
-                                iconPosition="left"
-                                animation="pulse"
-                                rounded="full"
-                                shadow="lg"
-                            >
-                                Tonton Video
-                            </Button>
+                            <Link href="/register">
+                                <Button
+                                    variant="primary"
+                                    size="md"
+                                    rounded="full"
+                                    shadow="lg"
+                                    animation="pulse"
+                                    isFullWidth="true"
+                                    className="text-lg hover:scale-[1.03] transition-transform"
+                                >
+                                    Registrasi Akun
+                                </Button>
+                            </Link>
+                            <Link href="/login">
+                                <Button
+                                    variant="outline"
+                                    theme="light"
+                                    size="md"
+                                    icon={UsersIcon}
+                                    iconPosition="left"
+                                    animation="pulse"
+                                    rounded="full"
+                                    shadow="lg"
+                                >
+                                    Login Akun
+                                </Button>
+                            </Link>
                         </motion.div>
                     </motion.div>
                 </div>
