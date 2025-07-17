@@ -74,14 +74,14 @@ const AchievementCard = ({ achievement, starDesc, isReversed = false, index = 0 
                         <Description
                             color="gray-600"
                             size="xl"
-                            className="lg:text-xl"
+                            className="lg:text-lg"
                         >
                             {achievement.description}
                         </Description>
 
                         <div className="flex items-center text-yellow-500">
                             <StarIcon className="w-4 h-4 mr-2 fill-current" />
-                            <span className="text-lg font-medium text-gray-700">
+                            <span className="text-base font-medium text-gray-700">
                                 {achievement.starDesc}
                             </span>
                         </div>
