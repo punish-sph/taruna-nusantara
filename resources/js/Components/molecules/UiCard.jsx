@@ -5,7 +5,7 @@ import TitleSection from "@/Components/atoms/Title";
 import DescriptionSection from "@/Components/atoms/Description";
 import Badge from "@/Components/atoms/Badge";
 
-export default function NewsCard({ title, date, excerpt, category, image }) {
+export default function UiCard({ title, date, excerpt, category, image, buttontext }) {
   return (
     <article className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group">
       <div className="relative h-48 overflow-hidden">
@@ -36,7 +36,7 @@ export default function NewsCard({ title, date, excerpt, category, image }) {
         </DescriptionSection>
 
         <Button variant="ghost" theme="dark" animation="pulse">
-          Baca Selengkapnya
+          {buttontext}
         </Button>
       </div>
     </article>

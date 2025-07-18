@@ -1,5 +1,5 @@
 // RegisterLayout.jsx
-import RegisterForm from "../../Components/organisms/RegisterForm";
+import RegisterForm from "@/Components/organisms/Auth/RegisterForm";
 import { Head } from "@inertiajs/react";
 import Card from "@/Components/atoms/Card";
 import Title from "@/Components/atoms/Title";

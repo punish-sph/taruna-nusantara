@@ -15,7 +15,7 @@ export default function Button({
   theme = "light",
   size = "md",
   rounded = "md",
-  width = "auto",
+  width = "",
   shadow = "md",
   animation = "bounce",
   className = "",

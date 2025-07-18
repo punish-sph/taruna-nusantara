@@ -5,7 +5,7 @@ import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import BadgeLabel from "@/Components/atoms/Badge";
 import TitleSection from "@/Components/atoms/Title";
 import Button from "@/Components/atoms/Button";
-import NewsCard from "@/Components/molecules/NewsCard";
+import UiCard from "@/Components/molecules/UiCard";
 
 const NewsSection = () => {
   const newsData = [
@@ -18,6 +18,7 @@ const NewsSection = () => {
       category: "Pendaftaran",
       image:
         "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      buttontext: "Baca selengkapnya"
     },
     {
       id: 2,
@@ -28,6 +29,7 @@ const NewsSection = () => {
       category: "Prestasi",
       image:
         "https://images.unsplash.com/photo-1584697964358-3e14ca57658b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      buttontext: "Baca selengkapnya"
     },
     {
       id: 3,
@@ -38,6 +40,7 @@ const NewsSection = () => {
       category: "Kegiatan",
       image:
         "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      buttontext: "Baca selengkapnya"
     },
   ];
 
@@ -97,7 +100,7 @@ const NewsSection = () => {
       >
         {newsData.map((news) => (
           <motion.div key={news.id} variants={scaleIn} whileHover={{ y: -10 }}>
-            <NewsCard {...news} />
+            <UiCard {...news} />
           </motion.div>
         ))}
       </motion.div>

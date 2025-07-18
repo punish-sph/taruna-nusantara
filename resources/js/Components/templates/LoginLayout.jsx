@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LoginForm from "../../Components/organisms/LoginForm";
+import LoginForm from "@/Components/organisms/Auth/LoginForm";
 import { Head } from "@inertiajs/react";
 import Card from "@/Components/atoms/Card";
 import Title from "@/Components/atoms/Title";

@@ -88,7 +88,6 @@ const HeroSection = () => {
                                     shadow="lg"
                                     animation="pulse"
                                     isFullWidth="true"
-                                    className="text-lg hover:scale-[1.03] transition-transform"
                                 >
                                     Registrasi Akun
                                 </Button>
@@ -103,6 +102,7 @@ const HeroSection = () => {
                                     animation="pulse"
                                     rounded="full"
                                     shadow="lg"
+                                    isFullWidth
                                 >
                                     Login Akun
                                 </Button>

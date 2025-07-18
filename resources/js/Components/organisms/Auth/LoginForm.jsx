@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "../../Components/atoms/Button";
-import InputField from "../../Components/molecules/InputField";
+import Button from "@/Components/atoms/Button";
+import InputField from "@/Components/molecules/InputField";
 import Title from "@/Components/atoms/Title";
 import Description from "@/Components/atoms/Description";
 
