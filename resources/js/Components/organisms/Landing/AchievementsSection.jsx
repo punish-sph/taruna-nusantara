@@ -45,7 +45,7 @@ const Achievements = () => {
             starDesc: "Prestasi Bahasa",
             categories: ["Bahasa Inggris", "Debat", "Komunikasi"],
             image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        }
+        },
     ];
 
     const displayedAchievements = achievements.slice(0, 6);
@@ -79,16 +79,17 @@ const Achievements = () => {
                             className="lg:text-5xl"
                         />
                     </div>
-
-                    <Button
-                        variant="primary"
-                        icon={ArrowRightIcon}
-                        iconPosition="right"
-                        animation="pulse"
-                        className="mb-2"
-                    >
-                        Lihat Semua
-                    </Button>
+                    <Link href="/achievement"> 
+                        <Button
+                            variant="primary"
+                            icon={ArrowRightIcon}
+                            iconPosition="right"
+                            animation="pulse"
+                            className="mb-2"
+                        >
+                            Lihat Semua
+                        </Button>
+                    </Link>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
