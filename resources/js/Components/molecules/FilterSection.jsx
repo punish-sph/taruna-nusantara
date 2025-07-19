@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Button from "@/Components/atoms/Button";
 import Input from "@/Components/atoms/Input";
+import Title from "@/Components/atoms/Title";
 import Badge from "@/Components/atoms/Badge";
 import clsx from "clsx";
 
@@ -87,20 +88,18 @@ export default function Filter({
     return (
         <motion.div
             className={clsx(
-                "bg-white rounded-xl border border-gray-200 shadow-sm",
+                "",
                 className
             )}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
         >
-            <div className="p-4 space-y-4">
+            <div className="space-y-4">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                         <FunnelIcon className="w-5 h-5 text-gray-600" />
-                        <span className="font-medium text-gray-800">
-                            Filter
-                        </span>
+                        <Title className="" text="Filter" size="2xl"/>
                         {hasActiveFilters && (
                             <Badge
                                 text={`${
@@ -120,7 +119,6 @@ export default function Filter({
                                 variant="ghost"
                                 size="sm"
                                 onClick={handleResetFilters}
-                                className="text-gray-500 hover:text-gray-700"
                             >
                                 Reset
                             </Button>
@@ -155,7 +153,7 @@ export default function Filter({
                                 placeholder={searchPlaceholder}
                                 value={searchTerm}
                                 onChange={handleSearchChange}
-                                className="pl-10"
+                                className="pl-10 bg-white"
                             />
                         </div>
                     )}
@@ -169,9 +167,9 @@ export default function Filter({
                                             !isCategoryDropdownOpen
                                         )
                                     }
-                                    className="w-full flex items-center justify-between px-4 py-2 border border-gray-300 rounded-md bg-white hover:border-gray-400 transition-colors"
+                                    className="w-full flex items-center justify-between px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out bg-white"
                                 >
-                                    <span className="text-sm text-gray-700">
+                                    <span className="text-md text-gray-700">
                                         {selectedCategories.length > 0
                                             ? `${selectedCategories.length} kategori dipilih`
                                             : "Pilih Kategori"}
@@ -229,9 +227,9 @@ export default function Filter({
                                             !isSortDropdownOpen
                                         )
                                     }
-                                    className="w-full flex items-center justify-between px-4 py-2 border border-gray-300 rounded-md bg-white hover:border-gray-400 transition-colors"
+                                    className="w-full flex items-center justify-between px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out bg-white"
                                 >
-                                    <span className="text-sm text-gray-700">
+                                    <span className="text-md text-gray-700">
                                         {selectedSort
                                             ? getSortLabel(selectedSort)
                                             : "Urutkan"}

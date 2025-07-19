@@ -1,15 +1,19 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import LandingLayouts from "@/Components/templates/LandingLayout";
-import AchievementHeader from "@/Components/organisms/Landing/Achievement/AchievementHeader";
 import AchievementFilters from "@/Components/organisms/Landing/Achievement/AchievementFilters";
 import AchievementGrid from "@/Components/organisms/Landing/Achievement/AchievementGrid";
 import AchievementDetail from "@/Components/organisms/Landing/Achievement/AchievementDetail";
+
+import Title from "@/Components/atoms/Title";
+import Description from "@/Components/atoms/Description";
+import Badge from "@/Components/atoms/Badge";
 
 const ACHIEVEMENTS_DATA = [
     {
         id: 1,
         title: "Juara 1 Olimpiade Sains Nasional",
-        description: "Meraih juara 1 dalam bidang Fisika pada OSN tingkat nasional dengan prestasi yang membanggakan.",
+        description:
+            "Meraih juara 1 dalam bidang Fisika pada OSN tingkat nasional dengan prestasi yang membanggakan.",
         year: "2024",
         level: "Nasional",
         rank: "Juara 1",
@@ -23,17 +27,19 @@ const ACHIEVEMENTS_DATA = [
         coach: "Dr. Ahmad Susanto, M.Pd",
         student: "Rizki Pratama Putra",
         class: "XI MIPA 1",
-        detailDescription: "Prestasi gemilang ini merupakan culmination dari persiapan intensif selama 8 bulan dengan bimbingan khusus dari tim guru pembimbing olimpiade. Rizki Pratama Putra berhasil menunjukkan kemampuan analisis yang luar biasa dalam menyelesaikan soal-soal fisika tingkat tinggi. Kompetisi ini terdiri dari 3 tahap: tes tertulis, praktikum laboratorium, dan presentasi project.",
+        detailDescription:
+            "Prestasi gemilang ini merupakan culmination dari persiapan intensif selama 8 bulan dengan bimbingan khusus dari tim guru pembimbing olimpiade. Rizki Pratama Putra berhasil menunjukkan kemampuan analisis yang luar biasa dalam menyelesaikan soal-soal fisika tingkat tinggi. Kompetisi ini terdiri dari 3 tahap: tes tertulis, praktikum laboratorium, dan presentasi project.",
         achievements: [
             "Skor tertinggi dalam tes tertulis (98/100)",
             "Best Performance dalam praktikum laboratorium",
-            "Penghargaan khusus untuk Problem Solving Innovation"
-        ]
+            "Penghargaan khusus untuk Problem Solving Innovation",
+        ],
     },
     {
         id: 2,
         title: "Juara 2 Kompetisi Robotika",
-        description: "Prestasi gemilang dalam kompetisi robotika tingkat provinsi yang menunjukkan kemampuan teknologi siswa.",
+        description:
+            "Prestasi gemilang dalam kompetisi robotika tingkat provinsi yang menunjukkan kemampuan teknologi siswa.",
         year: "2024",
         level: "Provinsi",
         rank: "Juara 2",
@@ -47,17 +53,19 @@ const ACHIEVEMENTS_DATA = [
         coach: "Ir. Bambang Setiawan, M.T",
         student: "Tim Robotika SMAN Taruna",
         class: "XI & XII MIPA",
-        detailDescription: "Tim robotika SMA Taruna Nusantara berhasil menciptakan robot autonomous yang mampu menyelesaikan tantangan navigasi dan manipulasi objek dengan tingkat akurasi tinggi. Robot 'TARUBOT-X' berhasil melewati semua rintangan dalam waktu record dan mendapat apresiasi dari juri internasional.",
+        detailDescription:
+            "Tim robotika SMA Taruna Nusantara berhasil menciptakan robot autonomous yang mampu menyelesaikan tantangan navigasi dan manipulasi objek dengan tingkat akurasi tinggi. Robot 'TARUBOT-X' berhasil melewati semua rintangan dalam waktu record dan mendapat apresiasi dari juri internasional.",
         achievements: [
             "Robot tercepat dalam kategori Line Following",
             "Innovation Award untuk desain mechanical",
-            "Nominasi Best Team Collaboration"
-        ]
+            "Nominasi Best Team Collaboration",
+        ],
     },
     {
         id: 3,
         title: "Juara 1 Debat Bahasa Inggris",
-        description: "Meraih juara 1 dalam kompetisi debat bahasa Inggris dengan kemampuan berbahasa yang luar biasa.",
+        description:
+            "Meraih juara 1 dalam kompetisi debat bahasa Inggris dengan kemampuan berbahasa yang luar biasa.",
         year: "2024",
         level: "Internasional",
         rank: "Juara 1",
@@ -71,17 +79,19 @@ const ACHIEVEMENTS_DATA = [
         coach: "Mrs. Sarah Johnson, M.A",
         student: "Ananda Putri Maharani",
         class: "XII IPS 2",
-        detailDescription: "Kompetisi debat bahasa Inggris tingkat ASEAN ini mengangkat tema 'Climate Action and Youth Leadership'. Ananda berhasil memukau juri dengan argumentasi yang solid, data yang akurat, dan delivery yang percaya diri. Prestasi ini membuat Indonesia bangga di kancah internasional.",
+        detailDescription:
+            "Kompetisi debat bahasa Inggris tingkat ASEAN ini mengangkat tema 'Climate Action and Youth Leadership'. Ananda berhasil memukau juri dengan argumentasi yang solid, data yang akurat, dan delivery yang percaya diri. Prestasi ini membuat Indonesia bangga di kancah internasional.",
         achievements: [
             "Best Speaker Award dalam Final Round",
             "Most Convincing Argument dalam Semi Final",
-            "Youth Ambassador untuk Climate Action 2025"
-        ]
+            "Youth Ambassador untuk Climate Action 2025",
+        ],
     },
     {
         id: 4,
         title: "Juara 1 Festival Seni dan Budaya",
-        description: "Prestasi membanggakan dalam festival seni dan budaya dengan penampilan tari tradisional yang memukau.",
+        description:
+            "Prestasi membanggakan dalam festival seni dan budaya dengan penampilan tari tradisional yang memukau.",
         year: "2023",
         level: "Kota",
         rank: "Juara 1",
@@ -95,17 +105,19 @@ const ACHIEVEMENTS_DATA = [
         coach: "I Wayan Sujana, S.Sn",
         student: "Sanggar Tari Taruna Nusantara",
         class: "X, XI, XII (Ekstrakurikuler)",
-        detailDescription: "Penampilan tari kreasi 'Harmony of Archipelago' berhasil memadukan berbagai gerakan tari tradisional Nusantara dengan musik kontemporer. Koreografi yang apik dan kostum yang memukau membuat penonton terpesona dan juri memberikan standing ovation.",
+        detailDescription:
+            "Penampilan tari kreasi 'Harmony of Archipelago' berhasil memadukan berbagai gerakan tari tradisional Nusantara dengan musik kontemporer. Koreografi yang apik dan kostum yang memukau membuat penonton terpesona dan juri memberikan standing ovation.",
         achievements: [
             "Koreografi Terbaik Festival 2023",
             "Kostum Tradisional Terfavorit",
-            "Penampilan Paling Menginspirasi"
-        ]
+            "Penampilan Paling Menginspirasi",
+        ],
     },
     {
         id: 5,
         title: "Juara 2 Kompetisi Programming",
-        description: "Prestasi luar biasa dalam kompetisi programming yang menunjukkan kemampuan coding siswa.",
+        description:
+            "Prestasi luar biasa dalam kompetisi programming yang menunjukkan kemampuan coding siswa.",
         year: "2023",
         level: "Nasional",
         rank: "Juara 2",
@@ -119,17 +131,19 @@ const ACHIEVEMENTS_DATA = [
         coach: "Dr. Budi Rahardjo, M.Kom",
         student: "Tim Algorithm Masters",
         class: "XI & XII MIPA",
-        detailDescription: "Kompetisi programming tingkat nasional ini menguji kemampuan problem solving dan algoritma dalam waktu terbatas. Tim berhasil menyelesaikan 8 dari 10 soal dengan waktu penalty yang minimal. Solusi yang elegant dan efficient menjadi kunci sukses meraih posisi kedua.",
+        detailDescription:
+            "Kompetisi programming tingkat nasional ini menguji kemampuan problem solving dan algoritma dalam waktu terbatas. Tim berhasil menyelesaikan 8 dari 10 soal dengan waktu penalty yang minimal. Solusi yang elegant dan efficient menjadi kunci sukses meraih posisi kedua.",
         achievements: [
             "Fastest Solution untuk Problem Dynamic Programming",
             "Most Elegant Code dalam kategori Graph Theory",
-            "Tim Termuda yang masuk Final Round"
-        ]
+            "Tim Termuda yang masuk Final Round",
+        ],
     },
     {
         id: 6,
         title: "Juara 1 Basket Putri SMA",
-        description: "Tim basket putri meraih juara 1 dalam turnamen basket SMA dengan permainan yang solid.",
+        description:
+            "Tim basket putri meraih juara 1 dalam turnamen basket SMA dengan permainan yang solid.",
         year: "2023",
         level: "Provinsi",
         rank: "Juara 1",
@@ -143,13 +157,14 @@ const ACHIEVEMENTS_DATA = [
         coach: "Coach Maria Selviana, S.Pd",
         student: "Tim Basket Putri Taruna",
         class: "X, XI, XII (Ekstrakurikuler)",
-        detailDescription: "Tim basket putri SMA Taruna Nusantara menunjukkan permainan yang luar biasa sepanjang turnamen. Dengan strategi fast break dan defensive yang solid, tim berhasil mengalahkan semua lawan tanpa kekalahan. Final yang dramatis melawan SMAN 1 Bandung dimenangkan dengan skor 78-75.",
+        detailDescription:
+            "Tim basket putri SMA Taruna Nusantara menunjukkan permainan yang luar biasa sepanjang turnamen. Dengan strategi fast break dan defensive yang solid, tim berhasil mengalahkan semua lawan tanpa kekalahan. Final yang dramatis melawan SMAN 1 Bandung dimenangkan dengan skor 78-75.",
         achievements: [
             "Undefeated Champion (7 menang 0 kalah)",
             "Top Scorer Tournament (Anisa Rahma)",
-            "Best Team Defense Award"
-        ]
-    }
+            "Best Team Defense Award",
+        ],
+    },
 ];
 
 const AchievementPage = () => {
@@ -163,41 +178,53 @@ const AchievementPage = () => {
         setFilteredAchievements(achievementsData);
     }, [achievementsData]);
 
-    const handleFilterChange = useCallback((filters) => {
-        let filtered = [...achievementsData];
+    const handleFilterChange = useCallback(
+        (filters) => {
+            let filtered = [...achievementsData];
 
-        if (filters.search) {
-            filtered = filtered.filter(item =>
-                item.title.toLowerCase().includes(filters.search.toLowerCase()) ||
-                item.description.toLowerCase().includes(filters.search.toLowerCase())
-            );
-        }
-
-        if (filters.categories.length > 0) {
-            filtered = filtered.filter(item =>
-                filters.categories.includes(item.category)
-            );
-        }
-
-        if (filters.sort) {
-            switch (filters.sort) {
-                case "newest":
-                    filtered.sort((a, b) => parseInt(b.year) - parseInt(a.year));
-                    break;
-                case "oldest":
-                    filtered.sort((a, b) => parseInt(a.year) - parseInt(b.year));
-                    break;
-                case "title_asc":
-                    filtered.sort((a, b) => a.title.localeCompare(b.title));
-                    break;
-                case "title_desc":
-                    filtered.sort((a, b) => b.title.localeCompare(a.title));
-                    break;
+            if (filters.search) {
+                filtered = filtered.filter(
+                    (item) =>
+                        item.title
+                            .toLowerCase()
+                            .includes(filters.search.toLowerCase()) ||
+                        item.description
+                            .toLowerCase()
+                            .includes(filters.search.toLowerCase())
+                );
             }
-        }
 
-        setFilteredAchievements(filtered);
-    }, [achievementsData]);
+            if (filters.categories.length > 0) {
+                filtered = filtered.filter((item) =>
+                    filters.categories.includes(item.category)
+                );
+            }
+
+            if (filters.sort) {
+                switch (filters.sort) {
+                    case "newest":
+                        filtered.sort(
+                            (a, b) => parseInt(b.year) - parseInt(a.year)
+                        );
+                        break;
+                    case "oldest":
+                        filtered.sort(
+                            (a, b) => parseInt(a.year) - parseInt(b.year)
+                        );
+                        break;
+                    case "title_asc":
+                        filtered.sort((a, b) => a.title.localeCompare(b.title));
+                        break;
+                    case "title_desc":
+                        filtered.sort((a, b) => b.title.localeCompare(a.title));
+                        break;
+                }
+            }
+
+            setFilteredAchievements(filtered);
+        },
+        [achievementsData]
+    );
 
     const handleViewDetail = useCallback((achievement) => {
         setSelectedAchievement(achievement);
@@ -212,11 +239,32 @@ const AchievementPage = () => {
     return (
         <div className="min-h-screen bg-gray-50">
             <div className="container mx-auto px-6 py-8 space-y-8">
-                <AchievementHeader />
-                
+                <div className="text-center space-y-4">
+                    <Badge
+                        text="Prestasi Akademik & Non-Akademik"
+                        variant="sky"
+                    />
+                    <Title
+                        text="Prestasi Sekolah"
+                        highlight="Prestasi"
+                        size="3xl"
+                        className="lg:text-5xl"
+                        align="center"
+                    />
+                    <Description
+                        size="lg"
+                        className="max-w-2xl mx-auto"
+                        align="center"
+                        color="gray-600"
+                    >
+                        Koleksi prestasi yang telah diraih siswa-siswi SMA
+                        Taruna Nusantara di berbagai bidang kompetisi.
+                    </Description>
+                </div>
+
                 <AchievementFilters onFilterChange={handleFilterChange} />
-                
-                <AchievementGrid 
+
+                <AchievementGrid
                     achievements={filteredAchievements}
                     onViewDetail={handleViewDetail}
                 />
@@ -230,8 +278,12 @@ const AchievementPage = () => {
 
             <style jsx>{`
                 @keyframes fadeIn {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
                 }
                 .animate-fadeIn {
                     animation: fadeIn 0.3s ease-out forwards;
